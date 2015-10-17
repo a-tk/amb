@@ -14,7 +14,7 @@ module.exports = function(app, db) {
     }
 
     function addPost(req, res, next) {
-        var user = req.query.username;
+        var user = req.query.userid;
         var post = req.query.post;
         var response = 'cannot add';
 
@@ -26,7 +26,7 @@ module.exports = function(app, db) {
     }
 
     function getPosts(req, res, next) {
-        var user = req.query.username;
+        var user = req.query.userid;
         var posts;
         if (user !== undefined) {
             posts = db.getPosts(user);

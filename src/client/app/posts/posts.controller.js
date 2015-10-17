@@ -24,7 +24,7 @@
         }
 
         function getPosts() {
-            return dataservice.getPosts()
+            return dataservice.getPosts(0)
                 .then(function(data){
                     vm.posts = data.data;
                     return vm.selectedPosts;

@@ -14,8 +14,8 @@
 
         return service;
 
-        function getPosts() {
-            return $http({method: 'GET', url: '/api/getPosts?username=testUser'}).
+        function getPosts(userid) {
+            return $http({method: 'GET', url: '/api/getPosts?userid='+userid}).
                 success(function(data, status, headers, config) {
                     // this callback will be called asynchronously
                     // when the response is available

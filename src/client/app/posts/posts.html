@@ -1,30 +1,21 @@
-<div data-ng-controller="PostsCtrl as vm" >
-    <h2 class="row">{{vm.title}}</h2>
-
-    <div class="row btn-group">
-        <button type="button" class="btn btn-default"
-                data-ng-repeat="a in vm.posts track by a"
-                data-ng-click="vm.selectedPost = a">{{a}}</button>
-    </div>
-    <div class="row">
-        <span class="label label-primary">{{vm.selectedPost}}</span>
-    </div>
-
-    <div class="row">
+<div data-ng-controller="PostsCtrl as vm">
+    <h2>{{vm.title}}</h2>
+    <div>
         <label>Filter</label>
         <input data-ng-model="postFilter"/>
     </div>
-
-    <div data-ng-if="vm.selectedPost" class="row">
-        <table class="table table-bordered table-striped table-condensed">
-            <thead>
-                <th>Post</th>
-            </thead>
-            <tbody>
-                <tr data-ng-repeat="a in vm.posts | filter:postFilter track by a">
-                    <td>{{a}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <table class="table table-bordered table-striped table-condensed">
+        <thead>
+        <th>ID</th>
+        <th>Time</th>
+        <th>Post</th>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="p in vm.posts | filter:postFilter">
+            <td>{{p.id}}</td>
+            <td>{{p.timestamp}}</td>
+            <td>{{p.post}}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
